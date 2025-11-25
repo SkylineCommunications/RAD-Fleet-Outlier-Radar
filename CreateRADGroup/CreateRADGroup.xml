@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DMSScript options="272" xmlns="http://www.skyline.be/automation">
+	<Name>Create RAD Group</Name>
+	<Description></Description>
+	<Type>Automation</Type>
+	<Author>Tobe Deprez</Author>
+	<CheckSets>FALSE</CheckSets>
+	<Folder></Folder>
+	<Interactivity>Auto</Interactivity>
+	<Folder>DataMiner Catalog\RAD Fleet Outlier Radar</Folder>
+
+	<Protocols>
+	</Protocols>
+
+	<Memory>
+	</Memory>
+
+	<Parameters>
+	</Parameters>
+
+	<Script>
+		<Exe id="1" type="csharp">
+			<Value><![CDATA[[Project:CreateRADGroup]]]></Value>
+			<!--<Param type="debug">true</Param>-->
+			<Message></Message>
+		</Exe>
+	</Script>
+</DMSScript>

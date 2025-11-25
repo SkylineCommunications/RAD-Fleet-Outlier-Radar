@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Code Analysis", "Code Analy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Empower 2025 - AI - Commtia DAB", "Empower 2025 - AI - Commtia DAB\Empower 2025 - AI - Commtia DAB.csproj", "{A0FC47F3-A359-43BC-BCA7-3707CA091232}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateRADGroup", "CreateRADGroup\CreateRADGroup.csproj", "{C0005798-16E2-4B77-BF3D-485392737585}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A0FC47F3-A359-43BC-BCA7-3707CA091232}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0FC47F3-A359-43BC-BCA7-3707CA091232}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0FC47F3-A359-43BC-BCA7-3707CA091232}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0005798-16E2-4B77-BF3D-485392737585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0005798-16E2-4B77-BF3D-485392737585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0005798-16E2-4B77-BF3D-485392737585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0005798-16E2-4B77-BF3D-485392737585}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
