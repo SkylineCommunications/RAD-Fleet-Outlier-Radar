@@ -3385,7 +3385,7 @@ public class QAction
         int dataIndex = int.Parse(protocol.Dataindex.ToString(), CultureInfo.InvariantCulture);
         var data = Data.GetDABData();
         var endTime = DateTime.Now - TimeSpan.FromHours(1);
-        int maxValuesPerTime = Data.FastVersion ? 5000 : 5;
+        int maxValuesPerTime = Data.FastVersion ? 50 : 5;
 
         int valuesPushed = 0;
         for (int j = lastRow + 1; j < lastRow + maxValuesPerTime + 1; ++j)
@@ -3395,6 +3395,7 @@ public class QAction
                 break;
 
             SetValues(protocol, dataPoint);
+            valuesPushed++;
         }
 
         protocol.Lastrownumber = lastRow + valuesPushed;
