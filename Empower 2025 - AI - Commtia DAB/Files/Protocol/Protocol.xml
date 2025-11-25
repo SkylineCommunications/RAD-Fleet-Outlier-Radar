@@ -3228,7 +3228,7 @@ Do you want to change the PA type?
 
         public static class Data
         {
-            public static bool FastVersion = true;
+            public static bool FastVersion = false;
             public static TimeSpan START_TIME_AGO = TimeSpan.FromDays(14);
             public static TimeSpan POLLING_TIME = TimeSpan.FromMinutes(5);
 
@@ -3385,7 +3385,7 @@ public class QAction
         int dataIndex = int.Parse(protocol.Dataindex.ToString(), CultureInfo.InvariantCulture);
         var data = Data.GetDABData();
         var endTime = DateTime.Now - TimeSpan.FromHours(1);
-        int maxValuesPerTime = Data.FastVersion ? 50 : 5;
+        int maxValuesPerTime = Data.FastVersion ? 2000 : 200;
 
         int valuesPushed = 0;
         for (int j = lastRow + 1; j < lastRow + maxValuesPerTime + 1; ++j)
@@ -3514,7 +3514,7 @@ public class QAction
 	<Timers>
 		<Timer id="1">
 			<Name>Timer1</Name>
-			<Time initial="random=5:10">1000</Time>
+			<Time initial="random=0:30">30000</Time>
 			<!-- 30 sec-->
 			<Content>
 				<Group>1</Group>
