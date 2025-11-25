@@ -26,7 +26,7 @@
 		{
 			int viewID = CreateViews(new string[] { "DataMiner Catalog", "Augmented Operations", "RAD Fleet Outlier" });
 			for (int i = 0; i < protocolSuffixes_.Count; ++i)
-				CreateElement($"AI - RAD - Commtia LON{i + 1}", "Empower 2025 - AI - Commtia DAB", $"1.0.0.1-outlier-radar-{protocolSuffixes_[i]}", viewID, "TrendTemplate_PA_Demo", "AlarmTemplate_PA_Demo");
+				CreateElement($"AI - RAD - Commtia LON {(i + 1):D2}", "Empower 2025 - AI - Commtia DAB", $"1.0.0.1-outlier-radar-{protocolSuffixes_[i]}", viewID, "TrendTemplate_PA_Demo", "AlarmTemplate_PA_Demo");
 		}
 
 		private void AssignVisioToView(int viewID, string visioFileName)
