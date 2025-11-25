@@ -3390,7 +3390,7 @@ public class QAction
         int valuesPushed = 0;
         for (int j = lastRow + 1; j < lastRow + maxValuesPerTime + 1; ++j)
         {
-            var dataPoint = data.GetValue(startTime, lastRow);
+            var dataPoint = data.GetValue(startTime, j);
             if (dataPoint.Time >= endTime)
                 break;
 
