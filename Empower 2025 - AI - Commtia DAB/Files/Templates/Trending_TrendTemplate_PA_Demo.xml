@@ -3,7 +3,7 @@
 	<Description></Description>
 	<Protocol>
 		<Name>Empower 2025 - AI - Commtia DAB</Name>
-		<Version>1.0.0.1-outlier-radar</Version>
+		<Version>1.0.0.1-outlier-radar-{PROTOCOL_VERSION_SUFFIX}</Version>
 	</Protocol>
 	<Id id="120" rttrending="false" avgtrending="false" filter="" centraldbdisablert="false" centraldbdisableavg="false"/>
 	<Id id="121" rttrending="false" avgtrending="false" filter="" centraldbdisablert="false" centraldbdisableavg="false"/>

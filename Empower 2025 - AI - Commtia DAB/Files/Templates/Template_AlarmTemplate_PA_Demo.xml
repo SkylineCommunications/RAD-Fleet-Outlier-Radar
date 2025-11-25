@@ -5,7 +5,7 @@
 	<InterpreteVersion>1</InterpreteVersion>
 	<Protocol>
 		<Name>Empower 2025 - AI - Commtia DAB</Name>
-		<Version>1.0.0.1-outlier-radar</Version>
+		<Version>1.0.0.1-outlier-radar-{PROTOCOL_VERSION_SUFFIX}</Version>
 	</Protocol>
 	<Conditions>
 	</Conditions>

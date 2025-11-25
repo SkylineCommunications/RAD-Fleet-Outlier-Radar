@@ -1,6 +1,7 @@
 ﻿namespace Elements
 {
 	using System;
+	using System.Collections.Generic;
 	using Skyline.DataMiner.Automation;
 	using Skyline.DataMiner.Core.DataMinerSystem.Automation;
 	using Skyline.DataMiner.Core.DataMinerSystem.Common;
@@ -10,6 +11,11 @@
 	internal class ElementInstaller
 	{
 		private readonly IEngine engine;
+		private readonly List<string> protocolSuffixes_ = new List<string> {
+			"22_1083", "23_146_", "23_196_", "23_19_1", "23_265_", "23_323_", "23_388_", "23_560_", "23_565_", "23_64_1",
+			"23_739_", "24_310_", "24_7_10", "28_25_1", "28_568_", "30_100_", "30_30_1", "30_424_", "30_639_", "30_751_",
+			"34_1628", "34_1656", "34_1862", "34_240_", "34_282_", "34_298_", "51_576_", "60_118_", "66_349_",
+		};
 
 		public ElementInstaller(IEngine engine)
 		{
@@ -19,12 +25,8 @@
 		public void InstallDefaultContent()
 		{
 			int viewID = CreateViews(new string[] { "DataMiner Catalog", "Augmented Operations", "RAD Fleet Outlier" });
-			for (int i = 0; i < 22; ++i)
+			for (int i = 0; i < protocolSuffixes_.Count; ++i)
 				CreateElement($"AI - RAD - Commatia LON{i + 1}", "Empower 2025 - AI - Commtia DAB", "1.0.0.1-outlier-radar", viewID, "TrendTemplate_PA_Demo", "AlarmTemplate_PA_Demo");
-
-			System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
-			for (int i = 0; i < 22; ++i)
-				engine.FindElement($"AI - RAD - Commatia LON{i + 1}")?.SetParameter(60001, i);
 		}
 
 		private void AssignVisioToView(int viewID, string visioFileName)
