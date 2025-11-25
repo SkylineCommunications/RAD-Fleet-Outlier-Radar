@@ -2,7 +2,16 @@ import argparse
 import pathlib
 import shutil
 import tempfile
-import pandas as pd
+import subprocess
+import sys
+
+# Ensure pandas is installed
+try:
+    import pandas as pd
+except ImportError:
+    print("pandas not found. Installing...")
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "pandas"])
+    import pandas as pd
 
 def replace_placeholders(protocol_dir, output_dir, protocol_version_suffix, data):
     for input_path in pathlib.Path(protocol_dir).glob('**/*'):
