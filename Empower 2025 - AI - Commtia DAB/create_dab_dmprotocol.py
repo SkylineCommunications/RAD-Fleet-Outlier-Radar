@@ -2,16 +2,28 @@ import argparse
 import pathlib
 import shutil
 import tempfile
-import subprocess
-import sys
 
-# Ensure pandas is installed
-try:
-    import pandas as pd
-except ImportError:
-    print("pandas not found. Installing...")
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "pandas"])
-    import pandas as pd
+def parse_csv(file_path):
+    """Parse a CSV file and return a dictionary with column names as keys and lists of values."""
+    with open(file_path, 'r') as f:
+        lines = f.readlines()
+    
+    # Parse header
+    header = lines[0].strip().split(',')
+    
+    # Initialize dictionary with empty lists for each column
+    data = {col: [] for col in header}
+    
+    # Parse data rows
+    for line in lines[1:]:
+        line = line.strip()
+        if not line:  # Skip empty lines
+            continue
+        values = line.split(',')
+        for col, value in zip(header, values):
+            data[col].append(value)
+    
+    return data
 
 def replace_placeholders(protocol_dir, output_dir, protocol_version_suffix, data):
     for input_path in pathlib.Path(protocol_dir).glob('**/*'):
@@ -21,10 +33,10 @@ def replace_placeholders(protocol_dir, output_dir, protocol_version_suffix, data
         with open(input_path, 'r') as f:
             content = f.read()
             content = content.replace('{PROTOCOL_VERSION_SUFFIX}', protocol_version_suffix)
-            content = content.replace('//PROTOCOL_DATA_PA1', ',\n'.join(data['pa1'].values.astype(str)))
-            content = content.replace('//PROTOCOL_DATA_PA2', ',\n'.join(data['pa2'].values.astype(str)))
-            content = content.replace('//PROTOCOL_DATA_PA3', ',\n'.join(data['pa3'].values.astype(str)))
-            content = content.replace('//PROTOCOL_DATA_TOTAL_OUTPUT_POWER', ',\n'.join(data['total_output_power'].values.astype(str)))
+            content = content.replace('//PROTOCOL_DATA_PA1', ',\n'.join(data['pa1']))
+            content = content.replace('//PROTOCOL_DATA_PA2', ',\n'.join(data['pa2']))
+            content = content.replace('//PROTOCOL_DATA_PA3', ',\n'.join(data['pa3']))
+            content = content.replace('//PROTOCOL_DATA_TOTAL_OUTPUT_POWER', ',\n'.join(data['total_output_power']))
 
         
         relative_path = input_path.relative_to(protocol_dir)
@@ -62,7 +74,7 @@ for protocol in args.protocols:
         package_name = pathlib.Path(protocol).name
 
     for data_file in pathlib.Path(args.data_dir).glob('*.csv'):
-        data = pd.read_csv(data_file)
+        data = parse_csv(data_file)
 
         temp_dir = tempfile.mkdtemp()
         replace_placeholders(
