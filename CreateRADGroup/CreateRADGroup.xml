@@ -5,7 +5,6 @@
 	<Type>Automation</Type>
 	<Author>Tobe Deprez</Author>
 	<CheckSets>FALSE</CheckSets>
-	<Folder></Folder>
 	<Interactivity>Auto</Interactivity>
 	<Folder>DataMiner Catalog\RAD Fleet Outlier Radar</Folder>
 

@@ -55,7 +55,7 @@ namespace CreateRADGroup
 			var dms = engine.GetDms();
 
 			var subgroupInfos = dms.GetElements()
-				.Where(e => e.Name.StartsWith("AI - RAD - Commatia"))
+				.Where(e => e.Name.StartsWith("AI - RAD - Commtia"))
 				.Select(e => new RADSubgroupInfo(e.Name, new List<RADParameter>()
 				{
 					new RADParameter(new ParameterKey(e.DmsElementId.AgentId, e.DmsElementId.ElementId, 2243, "PA1"), "PA1"),
